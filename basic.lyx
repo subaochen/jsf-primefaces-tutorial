@@ -27,9 +27,9 @@ PackageOptions url hyphens
 \language_package default
 \inputencoding utf8-plain
 \fontencoding global
-\font_roman "default" "FreeSerif"
-\font_sans "default" "FreeSans"
-\font_typewriter "default" "FreeMono"
+\font_roman "default" "DejaVu Sans"
+\font_sans "default" "DejaVu Serif"
+\font_typewriter "default" "DejaVu Sans Mono"
 \font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts true
@@ -98,127 +98,45 @@ PackageOptions url hyphens
 
 \begin_body
 
-\begin_layout Title
-JSF&PrimeFaces 实战教程
+\begin_layout Chapter
+WEB开发基础知识
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "frontmatter.tex"
-
-\end_inset
-
-
+\begin_layout Section
+B/S vs.
+ C/S
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
+\begin_layout Section
+WEB交互流程
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "basic.lyx"
-
-\end_inset
-
-
+\begin_layout Subsection
+WEB交互的基本过程
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "servlet.lyx"
-
-\end_inset
-
-
+\begin_layout Subsection
+近距离观察HTTP协议
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-basic.lyx"
-
-\end_inset
-
-
+\begin_layout Section
+HTML/CSS回顾
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-el.lyx"
-
-\end_inset
-
-
+\begin_layout Section
+Maven简介
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-input.lyx"
-
-\end_inset
-
-
+\begin_layout Section
+WEB开发环境的建立
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-event-driven.lyx"
-
-\end_inset
-
-
+\begin_layout Subsection
+Linux下常见WEB开发环境
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-table.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-layout.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "primefaces.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "case-study.lyx"
-
-\end_inset
-
-
+\begin_layout Subsection
+Windows下常见WEB开发环境
 \end_layout
 
 \end_body

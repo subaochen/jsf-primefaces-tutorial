@@ -27,9 +27,9 @@ PackageOptions url hyphens
 \language_package default
 \inputencoding utf8-plain
 \fontencoding global
-\font_roman "default" "FreeSerif"
-\font_sans "default" "FreeSans"
-\font_typewriter "default" "FreeMono"
+\font_roman "default" "DejaVu Sans"
+\font_sans "default" "DejaVu Serif"
+\font_typewriter "default" "DejaVu Sans Mono"
 \font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts true
@@ -98,127 +98,32 @@ PackageOptions url hyphens
 
 \begin_body
 
-\begin_layout Title
-JSF&PrimeFaces 实战教程
+\begin_layout Chapter
+Servlet入门
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "frontmatter.tex"
-
-\end_inset
-
-
+\begin_layout Section
+基本概念
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
+\begin_layout Section
+Servlet开发环境
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "basic.lyx"
-
-\end_inset
-
-
+\begin_layout Section
+最简单的Servlet
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "servlet.lyx"
-
-\end_inset
-
-
+\begin_layout Section
+Servlet原理分析
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-basic.lyx"
-
-\end_inset
-
-
+\begin_layout Section
+过滤器和拦截器
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-el.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-input.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-event-driven.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-table.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-layout.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "primefaces.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "case-study.lyx"
-
-\end_inset
-
-
+\begin_layout Section
+Servlet案例
 \end_layout
 
 \end_body

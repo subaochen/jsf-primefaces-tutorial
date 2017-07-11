@@ -27,9 +27,9 @@ PackageOptions url hyphens
 \language_package default
 \inputencoding utf8-plain
 \fontencoding global
-\font_roman "default" "DejaVu Sans"
-\font_sans "default" "DejaVu Serif"
-\font_typewriter "default" "DejaVu Sans Mono"
+\font_roman "default" "FreeSerif"
+\font_sans "default" "FreeSans"
+\font_typewriter "default" "FreeMono"
 \font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts true
