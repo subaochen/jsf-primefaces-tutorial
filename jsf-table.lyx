@@ -99,7 +99,23 @@ PackageOptions url hyphens
 \begin_body
 
 \begin_layout Chapter
-JSF的表格输入
+JSF的表格
+\end_layout
+
+\begin_layout Section
+h:dataTable
+\end_layout
+
+\begin_layout Section
+表格的排序问题
+\end_layout
+
+\begin_layout Section
+表格的搜索问题
+\end_layout
+
+\begin_layout Section
+表格的输入
 \end_layout
 
 \end_body

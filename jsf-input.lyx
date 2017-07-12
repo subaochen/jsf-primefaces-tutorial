@@ -99,7 +99,15 @@ PackageOptions url hyphens
 \begin_body
 
 \begin_layout Chapter
-JSF的输入组件
+JSF的输入输出组件
+\end_layout
+
+\begin_layout Section
+h:outputText
+\end_layout
+
+\begin_layout Section
+h:inputText
 \end_layout
 
 \begin_layout Standard
