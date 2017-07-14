@@ -111,8 +111,25 @@ JSF介绍
 \end_layout
 
 \begin_layout Standard
-Java Server Faces (JSF) 是一种用于构建Java Web 应用程序的标准框架，基于将逻辑与表示分离的MVC模式架构，JSF规范定义了一组标
-准UI组件，从而简化了Java服务器端应用程序的开发，并提供了用于开发组件的应用程序编程接口（API），JSF可以重用和扩展现有的标准UI组件。
+Java Server Faces (JSF) 是一种用于构建Java Web 应用程序的标准框架
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jsf2-html5"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+仅仅作为文献引用的示例
+\end_layout
+
+\end_inset
+
+，基于将逻辑与表示分离的MVC模式架构，JSF规范定义了一组标准UI组件，从而简化了Java服务器端应用程序的开发，并提供了用于开发组件的应用程序编程接口（AP
+I），JSF可以重用和扩展现有的标准UI组件。
 \end_layout
 
 \begin_layout Standard

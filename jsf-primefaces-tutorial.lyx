@@ -222,5 +222,17 @@ filename "case-study.lyx"
 
 \end_layout
 
+\begin_layout Standard
+\start_of_appendix
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "jsf"
+options "IEEEtranS"
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
