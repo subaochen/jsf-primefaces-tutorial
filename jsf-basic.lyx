@@ -111,16 +111,17 @@ JSF介绍
 \end_layout
 
 \begin_layout Standard
-Java Server Faces (JSF) 是一种用于构建Java Web 应用程序的标准框架
+Java Server Faces (JSF) 是一种用于构建Java Web 应用程序的标准框架，基于将逻辑与表示分离的MVC模式架构，JSF规范定义了一组标
+准UI组件，从而简化了Java服务器端应用程序的开发，并提供了用于开发组件的应用程序编程接口（API），JSF可以重用和扩展现有的标准UI组件。
 \begin_inset CommandInset citation
 LatexCommand cite
-key "jsf2-html5"
+key "JSF-Overview"
 
 \end_inset
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 仅仅作为文献引用的示例
@@ -128,8 +129,7 @@ status open
 
 \end_inset
 
-，基于将逻辑与表示分离的MVC模式架构，JSF规范定义了一组标准UI组件，从而简化了Java服务器端应用程序的开发，并提供了用于开发组件的应用程序编程接口（AP
-I），JSF可以重用和扩展现有的标准UI组件。
+
 \end_layout
 
 \begin_layout Standard
@@ -137,7 +137,14 @@ I），JSF可以重用和扩展现有的标准UI组件。
 用Servlet和JSP组件开发的，通常是HTML浏览器的客户端向服务器发送请求。Web服务器接收请求，封装请求，然后使用客户端的各种参数值填充此请求对象，并将
 其发送到Servlet（充当控制器）分析请求，然后与执行各种应用程序业务逻辑的Model（Java Beans）交互，然后选择向用户显示哪个视图。JSF隐藏了
  MVC-2体系结构的 View部分中大部分复杂内容。该框架不仅限于开发定制的用户界面组件，还支持各种高级功能，如事件处理机制，验证客户端发送的用户输入，页面导
-航机制等
+航机制等.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Introduction-JSF"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -183,6 +190,13 @@ JSF优点
 
 \begin_layout Standard
 JSF减少了创建和维护应用程序的工作，这些应用程序将在Java应用程序服务器上运行，并将应用程序UI呈现给目标客户端
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Introduction-JSF"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
