@@ -106,6 +106,68 @@ JSF编程模型
 JSF的概念
 \end_layout
 
+\begin_layout Subsection
+JSF介绍
+\end_layout
+
+\begin_layout Standard
+Java Server Faces (JSF) 是一种用于构建Java Web 应用程序的标准框架，基于将逻辑与表示分离的MVC模式架构，JSF规范定义了一组标
+准UI组件，从而简化了Java服务器端应用程序的开发，并提供了用于开发组件的应用程序编程接口（API），JSF可以重用和扩展现有的标准UI组件。
+\end_layout
+
+\begin_layout Standard
+事实上JSF是对已经存在的web应用程序框架的一种抽象，在JSF之前，servlet 和 JSP 是 web 应用程序开发中核心组件的主要部分，传统的交互是仅使
+用Servlet和JSP组件开发的，通常是HTML浏览器的客户端向服务器发送请求。Web服务器接收请求，封装请求，然后使用客户端的各种参数值填充此请求对象，并将
+其发送到Servlet（充当控制器）分析请求，然后与执行各种应用程序业务逻辑的Model（Java Beans）交互，然后选择向用户显示哪个视图。JSF隐藏了
+ MVC-2体系结构的 View部分中大部分复杂内容。该框架不仅限于开发定制的用户界面组件，还支持各种高级功能，如事件处理机制，验证客户端发送的用户输入，页面导
+航机制等
+\end_layout
+
+\begin_layout Subsection
+JSF版本历史
+\end_layout
+
+\begin_layout Standard
+JSF 2.2（2013-05-21） - 引入了新的概念，如无状态视图，页面流和创建便携式资源合同的能力。 
+\end_layout
+
+\begin_layout Standard
+JSF 2.1（2010-11-22） - JSF 2.0的维护版本2。只有很小的规格变化。
+\end_layout
+
+\begin_layout Standard
+JSF 2.0（2009-07-01） - 易于使用，增强的功能和性能的主要版本。符合Java EE 6。 
+\end_layout
+
+\begin_layout Standard
+JSF 1.2（2006-05-11） - 对核心系统和API的许多改进。与Java EE 5兼容。初步采用Java EE。 
+\end_layout
+
+\begin_layout Standard
+JSF 1.1（2004-05-27） - 修复版本。没有规格变化。
+\end_layout
+
+\begin_layout Standard
+JSF 1.0（2004-03-11） - 发布初始规范。
+\end_layout
+
+\begin_layout Subsection
+JSF优点
+\end_layout
+
+\begin_layout Standard
+表示各种行为/属性的UI组件与其响应之间的耦合非常低，几乎没有。因此，HTML浏览器不是唯一的目标客户端应用程序。JSF应用程序在WML浏览器中仍旧运行良好
+\end_layout
+
+\begin_layout Standard
+与JSF 1.x不同，所有内容都在faces-config.xml配置文件中声明，随着JSF 2.0的发布，开发人员可以使用注释声明导航，受管理的bean或CDI
+ bean，从而使开发变得更加轻松快捷
+\end_layout
+
+\begin_layout Standard
+JSF减少了创建和维护应用程序的工作，这些应用程序将在Java应用程序服务器上运行，并将应用程序UI呈现给目标客户端
+\end_layout
+
 \begin_layout Section
 JSF的生命周期
 \end_layout
