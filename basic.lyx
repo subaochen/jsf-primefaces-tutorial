@@ -102,6 +102,22 @@ PackageOptions url hyphens
 WEB开发基础知识
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+epigraph{一生二，二生三，三生万物}{老子《道德经》}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 B/S vs.
  C/S
