@@ -6,7 +6,6 @@
 \origin unavailable
 \textclass ctex-book
 \begin_preamble
-\usepackage{etex}
 \input{../writing-common/book-preamble.tex}
 \date{}
 \end_preamble
