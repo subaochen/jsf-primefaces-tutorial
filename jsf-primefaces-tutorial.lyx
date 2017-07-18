@@ -119,6 +119,10 @@ LatexCommand tableofcontents
 \end_inset
 
 
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -239,6 +243,10 @@ filename "primefaces.lyx"
 LatexCommand include
 filename "case-study.lyx"
 
+\end_inset
+
+
+\begin_inset Newpage cleardoublepage
 \end_inset
 
 
