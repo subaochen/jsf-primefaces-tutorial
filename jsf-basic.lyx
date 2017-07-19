@@ -203,6 +203,57 @@ key "Introduction-JSF"
 JSF的生命周期
 \end_layout
 
+\begin_layout Standard
+JSF使用一个控制器servlet来处理请求,然后执行 JSF 生命周期，所有JSF事件都在服务器上执行,当在JSF页面中提供一个事件处理程序时,就是告诉JSF
+实现当服务器处理页面中的用于输入时,应在生命周期的适当位置处理相应的事件。
+\end_layout
+
+\begin_layout Subsection
+还原视图阶段（Restore View Phase）
+\end_layout
+
+\begin_layout Standard
+Faces视图是用户界面组件的服务器端树，还原视图阶段是在内存中恢复或创建代表客户端用户界面信息的服务器端组件树（视图），当请求JSF页面时，JSF开始此阶段。
+\end_layout
+
+\begin_layout Standard
+在这个阶段JSF建立页面的视图，会有一个来自 FacesServlet 控制器的请求。控制器会对请求进行考查，并提取出视图的ID，使用这个视图ID来为当前的视图
+查找组件，给视图中的组件设置事件处理器、校验器，在FacesContext
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+FacesContext 包含与单个 JavaServer Faces 请求的处理以及相应响应的呈现相关的所有每个请求的状态信息。它传递给请求处理生命周期的每个
+阶段，并且可能被修改。FacesContext将视图保存在自己的 viewRoot属性中，所有应用程序的组件标签，事件处理程序，转换器和验证器都可以访问Face
+sContext
+\end_layout
+
+\end_inset
+
+中保存视图。如果对该页面的请求是初始请求，则JavaServerFaces创建一个空视图，并且生命周期进入到响应阶段，在此期间，空视图用页面中标记引用的组件填充
+;如果该页面对应的视图已经存在，JavaServerFaces通过使用保存在客户端或服务器上的状态信息来还原视图。
+\end_layout
+
+\begin_layout Subsection
+应用请求值阶段（Apply Request Values Phase）
+\end_layout
+
+\begin_layout Subsection
+过程验证阶段（Process Validations Phase）
+\end_layout
+
+\begin_layout Subsection
+更新模型值阶段（Update Model Values Phase）
+\end_layout
+
+\begin_layout Subsection
+调用应用程序阶段（Invoke Application Phase）
+\end_layout
+
+\begin_layout Subsection
+呈现响应阶段（Render Response Phase）
+\end_layout
+
 \begin_layout Section
 基本的JSF标签
 \end_layout
