@@ -245,30 +245,81 @@ acesContext对象进行检索或创建），然后将该值本地存储在组件
 \end_layout
 
 \begin_layout Standard
-如果任何decode方法或者事件侦听器在当前FacesContext实例上调用renderResponse，会忽略生命周期的其他部分，直接跳转到“呈现响应”阶段
-。如果应用程序需要重定向到其他Web应用程序资源或生成不包含任何JavaServer Faces组件的响应，则调用FacesContext.renderCompl
-ete方法，完全略过生命周期的其他阶段。
+如果任何decode方法或者事件侦听器在当前FacesContext实例上调用renderResponse，会忽略生命周期的其他部分，直接跳转到呈现响应阶段。如
+果应用程序需要重定向到其他Web应用程序或生成不包含任何JavaServer Faces组件的响应，则调用FacesContext.renderComplete方
+法，完全略过生命周期的其他阶段。
 \end_layout
 
 \begin_layout Standard
-如果页面上的一些组件有即时事件处理属性immediate="true/false"，那么验证，转换，以及与这些组件相关的事件将在这一阶段被处理，在此阶段结束时，
-所有组件已得到新值，错误信息和事件已入队列。
+如果页面上的一些组件有即时事件处理属性immediate="true"，那么验证，转换，以及与这些组件相关的事件将在这一阶段被处理，在此阶段结束时，所有组件已得
+到新值，错误信息和事件已入队列。
 \end_layout
 
 \begin_layout Subsection
 过程验证阶段（Process Validations Phase）
 \end_layout
 
+\begin_layout Standard
+此阶段，JSF处理所有组件树上注册的校验器，检查指定验证规则
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+这些验证规则可以是预先进行定义的（JSF 中提供的）,也可以由开发者进行定义
+\end_layout
+
+\end_inset
+
+的组件属性，并将这些规则与为组件存储的本地值进行比较，如果值不合法JSF在FacesContext实例中加入错误信息，生命周期直接进入显示应答阶段，以便再次显示
+页面并显示错误消息如果有转换错误也会显示。如果没有有效性验证错误，那么 JSF 就会转到更新模型值的阶段。
+\end_layout
+
+\begin_layout Standard
+任何validate方法或事件监听器调在当前FacesContext实例上用renderResponse方法，JSF将直接跳到显示应答阶段。如果应用程序需要重定
+向到其他Web应用程序或生成不包含任何JavaServerFaces组件的响应，则调用FacesContext.renderComplete方法，完全略过生命周期
+的其他阶段。
+\end_layout
+
 \begin_layout Subsection
 更新模型值阶段（Update Model Values Phase）
+\end_layout
+
+\begin_layout Standard
+这个阶段发生在有效性验证之后,因此可以确保拷贝到bean属性的值都是有效的，在确定数据有效之后，遍历组件树，更新服务器端模型的实际值。JavaServerFac
+es只更新输入组件的value属性指向的bean属性，通常来讲,是通过更新后台bean的属性实现的.只有那些与组件值绑定在一起的bean属性才会被更新。如果本地数
+据无法转换为bean属性指定的类型，则生命周期将直接前进到呈现响应阶段。以便重新呈现页面并显示错误。这与验证错误发生的相似。
+\end_layout
+
+\begin_layout Standard
+任何updateModels方法或任何监听器在当前FacesContext实例上用renderResponse方法，JSF将直接跳到显示应答阶段。如果应用程序需
+要重定向到其他Web应用程序或生成不包含任何JavaServerFaces组件的响应，则调用FacesContext.renderComplete方法，完全略过生
+命周期的其他阶段。
 \end_layout
 
 \begin_layout Subsection
 调用应用程序阶段（Invoke Application Phase）
 \end_layout
 
+\begin_layout Standard
+在此阶段，JavaServerFaces实现处理任何应用程序级事件，例如提交表单或链接到另一个页面。组件值已经经过了类型转换和有效性验证,并被应用到模型对象中，
+因此可以使用它们来执行应用程序的业务逻辑了。
+\end_layout
+
+\begin_layout Standard
+如果应用程序需要重定向到其他Web应用程序或生成不包含任何JavaServerFaces组件的响应，则可以调用FacesContext.responseCompl
+ete。
+\end_layout
+
 \begin_layout Subsection
 呈现响应阶段（Render Response Phase）
+\end_layout
+
+\begin_layout Standard
+在视图中显示当前状态中的所有组件。在呈现视图的内容之后，保存响应的状态，以便后续请求可以访问它，并且它可用于还原视图阶段。
+\end_layout
+
+\begin_layout Standard
+如果是返回请求，并且在应用请求值阶段，过程验证阶段或更新模型值阶段期间遇到错误，则在此阶段期间呈现原始页面。如果页面包含消息或消息标签，则页面上将显示错误消息。
 \end_layout
 
 \begin_layout Section
