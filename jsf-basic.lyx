@@ -238,6 +238,23 @@ sContext
 应用请求值阶段（Apply Request Values Phase）
 \end_layout
 
+\begin_layout Standard
+应用请求值阶段的目的是让每个组件检索自己当前的状态信息，与JSF中转换器息息相关。在组件树重建后，每一个树上的组件用decode方法从请求中解出其新的值（通过F
+acesContext对象进行检索或创建），然后将该值本地存储在组件上。如果值数据转换失败，产生与此组件相联系的错误，并入FacesContext的上下文，错误
+信息在其后的显示应答阶段显示。
+\end_layout
+
+\begin_layout Standard
+如果任何decode方法或者事件侦听器在当前FacesContext实例上调用renderResponse，会忽略生命周期的其他部分，直接跳转到“呈现响应”阶段
+。如果应用程序需要重定向到其他Web应用程序资源或生成不包含任何JavaServer Faces组件的响应，则调用FacesContext.renderCompl
+ete方法，完全略过生命周期的其他阶段。
+\end_layout
+
+\begin_layout Standard
+如果页面上的一些组件有即时事件处理属性immediate="true/false"，那么验证，转换，以及与这些组件相关的事件将在这一阶段被处理，在此阶段结束时，
+所有组件已得到新值，错误信息和事件已入队列。
+\end_layout
+
 \begin_layout Subsection
 过程验证阶段（Process Validations Phase）
 \end_layout
