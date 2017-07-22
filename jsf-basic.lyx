@@ -102,6 +102,22 @@ PackageOptions url hyphens
 JSF编程模型
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+epigraph{I am a slow walker, but I never walk backwards.}{Abraham Lincoln}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 JSF的概念
 \end_layout
