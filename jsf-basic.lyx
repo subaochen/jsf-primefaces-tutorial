@@ -342,6 +342,479 @@ ete。
 基本的JSF标签
 \end_layout
 
+\begin_layout Standard
+JSF1.2有两个标签库，核心标签库和HTML标签库。对于JSF2.0来说，一共有6个标签库本章主要介绍HTML标签库。JSF提供了标准的标签库，可以搭配JSF组件
+输出HTML文件，主要包括了几个类别：
+\end_layout
+
+\begin_layout Standard
+输入：input...(以output作为开头，输出指定的讯息或绑定值)
+\end_layout
+
+\begin_layout Standard
+输出：output...(以input作为开头，提供输入字段)、graphicImage
+\end_layout
+
+\begin_layout Standard
+命令：commandButton、commandLink
+\end_layout
+
+\begin_layout Standard
+GET请求：button、link、outputLink
+\end_layout
+
+\begin_layout Standard
+选择：checkbox、listbox、menu、radio
+\end_layout
+
+\begin_layout Standard
+HTML页面：head、body、form、outputStylesheet、outputScript
+\end_layout
+
+\begin_layout Standard
+布局：panelGrid、panelGroup
+\end_layout
+
+\begin_layout Standard
+数据表：dataTable、column
+\end_layout
+
+\begin_layout Standard
+错误和消息：message、messages
+\end_layout
+
+\begin_layout Standard
+JSF标准HTML标签共享三种类型标签特性：基本特性、HTML4.0特性（size、alt、width等属性）、DHTML事件（onchange、onclick等
+等）。
+\end_layout
+
+\begin_layout Standard
+基本特性如表所示：
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "基本HTML标签特性"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+基本HTML标签特性
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "基本HTML标签特性"
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+特性名称
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+适用范围
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+说明
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+id
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+所有组件
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+组件标识符
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+binding
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+所有组件
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+将该组件与backing bean属性绑定
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+rendered
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+所有组件
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+是否呈现组件（布尔类型）
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+value
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+输入、输出、命令组件
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+组件值：设置值或绑定到指定的值
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+valueChangeListener
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+输入组件
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+值变事件的处理者：反映值改变方法的方法表达式
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+converter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+输入、输出组件
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+转换器类名
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+validator
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+输入组件
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+创建并连接到组件验证器的类名
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+required
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+输入组件
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+是否验证必填字段（布尔类型）
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+输入类标签
+\end_layout
+
+\begin_layout Standard
+输入类标签包括了inputText、inputTextarea、inputSecret、 inputHidden
+\end_layout
+
+\begin_layout Itemize
+inputText：单行文本输入控件
+\begin_inset Newline newline
+\end_inset
+
+example:<h:inputText value="单行文本" readonly="true" style="..."/>(value值可以是值表达式)
+\end_layout
+
+\begin_layout Itemize
+inputTextarea：多行文本输入控件
+\begin_inset Newline newline
+\end_inset
+
+example：<h:inputTextarea value="多行文本..." rows="3" cols="5"/>(value值可以是值表达式)
+\end_layout
+
+\begin_layout Itemize
+inputSecret:密码输入控件
+\begin_inset Newline newline
+\end_inset
+
+example：<h:inputSecret value="#{user.password}" redisplay="true"/>
+\end_layout
+
+\begin_layout Itemize
+inputHidden：隐藏字段，用于保留一些讯息于客户端，以在下一次发送窗体时一并送出
+\end_layout
+
+\begin_layout Subsection
+输出类标签
+\end_layout
+
+\begin_layout Standard
+输出类的标签包括了outputLabel、outputLink、outputFormat与 outputText
+\end_layout
+
+\begin_layout Itemize
+outputLabel：便于访问其他组件的标签，使用for属性指定组件的client ID
+\end_layout
+
+\begin_layout Itemize
+outputLink：到其他web站点的链接
+\end_layout
+
+\begin_layout Itemize
+outputText:单行文本输出，简单的显示指定的值或绑定的值
+\end_layout
+
+\begin_layout Itemize
+outputFormat：类似于outputText，可以搭配<f:param>来设定参数，格式化复合消息
+\end_layout
+
+\begin_layout Itemize
+graphicImage：显示图像
+\end_layout
+
+\begin_layout Subsection
+命令类标签
+\end_layout
+
+\begin_layout Standard
+命令类标签包括commandButton与commandLink，其主要作用在于提供一个命令按钮或链接
+\end_layout
+
+\begin_layout Itemize
+commandButton：提交、重置或者按下按钮。可以设定image属性，指定图片的URL
+\end_layout
+
+\begin_layout Itemize
+commandLink：类似于按钮的链接
+\end_layout
+
+\begin_layout Subsection
+选择类标签
+\end_layout
+
+\begin_layout Standard
+选择类标签可以分为单选、复选、多选。按照外形又可以分为按钮、框、菜单。选择类标签包含以下几个
+\end_layout
+
+\begin_layout Itemize
+selectOneRadio（单选按钮）、selectOneListbox（单选列表框）、selectOneMenu（单选菜单）：这三个为单选类的选择标签，只有
+外观上的差异
+\end_layout
+
+\begin_layout Itemize
+selectBooleanCheckbox（复选框）：value所绑定的属性必须接受与传回boolean型，如果是其它类型的对象，必须搭配转换器（Convert
+er）进行字符串与对象之间的转换。
+\end_layout
+
+\begin_layout Itemize
+selectManyCheckbox（复选框集）：value所绑定的属性必须是数组或集合（Collection）对象
+\end_layout
+
+\begin_layout Itemize
+selectManyListbox（多选列表框）：value所绑定的属性必须是数组或集合（Collection）对象
+\end_layout
+
+\begin_layout Itemize
+selectManyMenu（多选菜单）：value所绑定的属性必须是数组或集合（Collection）对象
+\end_layout
+
 \begin_layout Section
 Hello, JSF！
 \end_layout
