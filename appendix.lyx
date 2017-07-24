@@ -7,7 +7,6 @@
 \textclass ctex-book
 \begin_preamble
 \input{../writing-common/book-preamble.tex}
-\date{}
 \end_preamble
 \options openany
 \use_default_options true
@@ -28,9 +27,9 @@ PackageOptions url hyphens
 \language_package default
 \inputencoding utf8-plain
 \fontencoding global
-\font_roman "default" "FreeSerif"
-\font_sans "default" "FreeSans"
-\font_typewriter "default" "FreeMono"
+\font_roman "default" "DejaVu Sans"
+\font_sans "default" "DejaVu Serif"
+\font_typewriter "default" "DejaVu Sans Mono"
 \font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts true
@@ -43,6 +42,7 @@ PackageOptions url hyphens
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement tbph
 \paperfontsize default
 \spacing single
 \use_hyperref true
@@ -88,7 +88,7 @@ PackageOptions url hyphens
 \quotes_language english
 \papercolumns 1
 \papersides 2
-\paperpagestyle empty
+\paperpagestyle default
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -98,50 +98,11 @@ PackageOptions url hyphens
 
 \begin_body
 
-\begin_layout Title
-JSF&PrimeFaces 实战教程
-\end_layout
-
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "frontmatter.tex"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset toc
-LatexCommand tableofcontents
-
-\end_inset
-
-
-\begin_inset Newpage cleardoublepage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-AddLabels
-\end_layout
-
-\end_inset
-
-
+\start_of_appendix
 \begin_inset CommandInset include
 LatexCommand include
-filename "basic.lyx"
+filename "appendix/jsf-tags.lyx"
 
 \end_inset
 
@@ -149,113 +110,10 @@ filename "basic.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "servlet.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-basic.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-el.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-input.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-event-driven.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-form-validation.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-table.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "jsf-layout.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "primefaces.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "case-study.lyx"
-
-\end_inset
-
-
-\begin_inset Newpage cleardoublepage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "appendix.lyx"
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "jsf"
+options "IEEEtranS"
 
 \end_inset
 
