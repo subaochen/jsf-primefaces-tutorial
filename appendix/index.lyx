@@ -98,32 +98,18 @@ PackageOptions url hyphens
 
 \begin_body
 
-\begin_layout Standard
-\start_of_appendix
-\begin_inset CommandInset include
-LatexCommand include
-filename "appendix/jsf-tags.lyx"
-
-\end_inset
-
-
+\begin_layout Chapter
+索引
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "appendix/index.lyx"
-
-\end_inset
-
-
+为什么使用索引？
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "jsf"
-options "IEEEtranS"
+\begin_inset CommandInset index_print
+LatexCommand printindex
+type "idx"
 
 \end_inset
 

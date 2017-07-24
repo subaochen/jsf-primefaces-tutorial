@@ -216,6 +216,15 @@ key "Introduction-JSF"
 \end_layout
 
 \begin_layout Section
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+JSF的生命周期
+\end_layout
+
+\end_inset
+
 JSF的生命周期
 \end_layout
 
@@ -714,6 +723,15 @@ required
 \end_layout
 
 \begin_layout Itemize
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+inputText
+\end_layout
+
+\end_inset
+
 inputText：单行文本输入控件
 \begin_inset Newline newline
 \end_inset
@@ -722,6 +740,15 @@ example:<h:inputText value="单行文本" readonly="true" style="..."/>(value值
 \end_layout
 
 \begin_layout Itemize
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+inputTextarea
+\end_layout
+
+\end_inset
+
 inputTextarea：多行文本输入控件
 \begin_inset Newline newline
 \end_inset

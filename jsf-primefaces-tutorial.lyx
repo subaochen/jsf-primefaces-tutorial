@@ -110,6 +110,16 @@ filename "frontmatter.tex"
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+不要写成大而全的技术手册。可以从简单的实例入手，引导读者“渐入佳境”，并在合适的位置给出下一步阅读或者实践的指导。
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
