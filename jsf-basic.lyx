@@ -875,7 +875,33 @@ status open
 
 \begin_layout Itemize
 outputLink：到其他web站点的链接。点击后，加载其他页面，但不会产生一个动作事件的超链接。如果您始终希望打开该URL（由outputLink标签的va
-lue属性指定），而不必在用户单击链接时执行任何处理，则应使用此标记而不是commandLink标记
+lue属性指定），而不必在用户单击链接时执行任何处理，则应使用此标记而不是commandLink标记。
+\begin_inset Newline newline
+\end_inset
+
+example:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<h:outputLink value="javadocs">    
+\end_layout
+
+\begin_layout Plain Layout
+
+  Documentation for this demo 
+\end_layout
+
+\begin_layout Plain Layout
+
+</h:outputLink>
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -884,10 +910,40 @@ outputText:单行文本输出，简单的显示指定的值或绑定的值
 
 \begin_layout Itemize
 outputFormat：类似于outputText，可以搭配<f:param>来设定参数，格式化复合消息
+\begin_inset Newline newline
+\end_inset
+
+example:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<h:outputFormat value="#{bundle.CartItemCount}">     
+\end_layout
+
+\begin_layout Plain Layout
+
+  <f:param value="#{cart.numberOfItems}"/> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</h:outputFormat> 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 graphicImage：显示图像
+\begin_inset Newline newline
+\end_inset
+
+example:<h:graphicImage id="cover" url="/images/1.jpg" alt="封面"/>
 \end_layout
 
 \begin_layout Subsection
@@ -980,25 +1036,223 @@ status open
 \end_layout
 
 \begin_layout Itemize
-selectOneRadio（单选按钮）、selectOneListbox（单选列表框）、selectOneMenu（单选菜单）：这三个为单选类的选择标签，只有
-外观上的差异
+UISelectOne组件允许用户从一组值中选择一个值。该组件可以呈现为列表框，一组单选按钮或菜单。
+\begin_inset Newline newline
+\end_inset
+
+selectOneRadio（单选按钮）、selectOneListbox（单选列表框）、selectOneMenu（单选菜单）：三个单选类的选择标签，只有外观
+上的差异
+\begin_inset Newline newline
+\end_inset
+
+example：
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<h:selectOneMenu   id="shippingOption"     
+\end_layout
+
+\begin_layout Plain Layout
+
+  required="true"     
+\end_layout
+
+\begin_layout Plain Layout
+
+  value="#{cashier.shippingOption}">     
+\end_layout
+
+\begin_layout Plain Layout
+
+  <f:selectItem         
+\end_layout
+
+\begin_layout Plain Layout
+
+    itemValue="2"         
+\end_layout
+
+\begin_layout Plain Layout
+
+    itemLabel="#{bundle.QuickShip}"/>     
+\end_layout
+
+\begin_layout Plain Layout
+
+  <f:selectItem         
+\end_layout
+
+\begin_layout Plain Layout
+
+    itemValue="5"         
+\end_layout
+
+\begin_layout Plain Layout
+
+    itemLabel="#{bundle.NormalShip}"/>     
+\end_layout
+
+\begin_layout Plain Layout
+
+  <f:selectItem         
+\end_layout
+
+\begin_layout Plain Layout
+
+    itemValue="7"         
+\end_layout
+
+\begin_layout Plain Layout
+
+    itemLabel="#{bundle.SaverShip}"/>  
+\end_layout
+
+\begin_layout Plain Layout
+
+</h:selectOneMenu>
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
+UISelectBoolean类定义具有组件的布尔值。selectBooleanCheckbox是JSF为表示boolean状态提供的唯一标签。
+\begin_inset Newline newline
+\end_inset
+
 selectBooleanCheckbox（复选框）：value所绑定的属性必须接受与传回boolean型，如果是其它类型的对象，必须搭配转换器（Convert
 er）进行字符串与对象之间的转换。
+\begin_inset Newline newline
+\end_inset
+
+example：
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<h:selectBooleanCheckbox      
+\end_layout
+
+\begin_layout Plain Layout
+
+  id="fanClub"     
+\end_layout
+
+\begin_layout Plain Layout
+
+  rendered="false"     
+\end_layout
+
+\begin_layout Plain Layout
+
+  binding="#{cashier.specialOffer}" /> 
+\end_layout
+
+\begin_layout Plain Layout
+
+<h:outputLabel      
+\end_layout
+
+\begin_layout Plain Layout
+
+  for="fanClub"     
+\end_layout
+
+\begin_layout Plain Layout
+
+  rendered="false"     
+\end_layout
+
+\begin_layout Plain Layout
+
+  binding="#{cashier.specialOfferText}">      
+\end_layout
+
+\begin_layout Plain Layout
+
+  <h:outputText         
+\end_layout
+
+\begin_layout Plain Layout
+
+    id="fanClubLabel"       
+\end_layout
+
+\begin_layout Plain Layout
+
+    value="#{bundle.DukeFanClub}" /> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</h:outputLabel> 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-selectManyCheckbox（复选框集）：value所绑定的属性必须是数组或集合（Collection）对象
+UISelectMany类定义了一个组件，它允许用户从一组值中选择零个或更多个值。该组件可以呈现为一组复选框，列表框或菜单。
+\begin_inset Newline newline
+\end_inset
+
+selectManyCheckbox（复选框集）、selectManyListbox（多选列表框）、selectManyMenu（多选菜单）：value所绑定的
+属性必须是数组或集合（Collection）对象value所绑定的属性必须是数组或集合（Collection）对象
+\begin_inset Newline newline
+\end_inset
+
+example：
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<h:selectManyCheckbox     
 \end_layout
 
-\begin_layout Itemize
-selectManyListbox（多选列表框）：value所绑定的属性必须是数组或集合（Collection）对象
+\begin_layout Plain Layout
+
+  id="newsletters"     
 \end_layout
 
-\begin_layout Itemize
-selectManyMenu（多选菜单）：value所绑定的属性必须是数组或集合（Collection）对象
+\begin_layout Plain Layout
+
+  layout="pageDirection"     
+\end_layout
+
+\begin_layout Plain Layout
+
+  value="#{cashier.newsletters}">     
+\end_layout
+
+\begin_layout Plain Layout
+
+  <f:selectItems         
+\end_layout
+
+\begin_layout Plain Layout
+
+    value="#{newsletters}"/> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</h:selectManyCheckbox>
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
