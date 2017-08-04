@@ -106,12 +106,484 @@ EL表达式
 基本概念
 \end_layout
 
+\begin_layout Subsection
+表达式语言的功能
+\end_layout
+
+\begin_layout Standard
+JavaServerFaces技术引入了自己的表达式语言（通常用来关联UI组件属性至后台bean或者应用中的模型对象。它们在运行时求解，通常是视图被显示时，而不
+是在应用被编译时）其中包含以下功能：表达式的延迟计算;设置数据以及获取数据;调用方法。这些功能对于支持JavaServer Faces技术提供的复杂UI组件模型
+尤其重要。
+\end_layout
+
+\begin_layout Standard
+表达式延迟计算十分重要是因为：JSF生命周期被分成独立的部分以便使组件事件的处理，数据的转换和验证，对外部对象的数据传播都以有序的方式进行。所以必须能够延迟表达
+式的计算, 直到达到生命周期的适当阶段。因此，其标签属性始终使用延迟计算语法，由＃{}分隔符区分。
+\end_layout
+
+\begin_layout Standard
+为了将数据存储在外部对象中，几乎所有的JavaServer Faces标签属性都使用值表达式，它们是允许在外部对象上获取和设置数据的表达式。
+\end_layout
+
+\begin_layout Standard
+最后，一些组件标签属性接受引用处理组件事件或验证或转换组件数据的方法的方法表达式。
+\end_layout
+
+\begin_layout Subsection
+表达式语言的优点
+\end_layout
+
+\begin_layout Enumerate
+简写bean属性
+\begin_inset Newline newline
+\end_inset
+
+其中bean可以是存储在请求，会话或应用程序范围内的对象，或者是受管理的bean
+\begin_inset Newline newline
+\end_inset
+
+若要引用名为company的managed bean下的getCompanyName方法的结果，可以使用#{company.companyName}
+\begin_inset Newline newline
+\end_inset
+
+若要引用名为company的managed bean下的president属性的firstName属性，使用#{company.president.firstNam
+e}
+\end_layout
+
+\begin_layout Enumerate
+简单访问集合元素
+\begin_inset Newline newline
+\end_inset
+
+如果要访问array, List, or Map中的某个元素，使用#{someBean.someProperty[indexOrKey]}
+\end_layout
+
+\begin_layout Enumerate
+提供对预定义对象的轻松访问。支持访问常用对象的隐含变量。例如要访问请求参数、cookie、HTTP 标头和其他标准类型的请求数据, 可以使用几个预定义的隐式对象
+。
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+隐含变量表格
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+自动类型转换：
+\begin_inset Newline newline
+\end_inset
+
+可以对任何类型的引用bean属性的EL表达式使用相同的技术，而不管该属性是简单类型、复杂对象、Map、数组或者List
+\end_layout
+
+\begin_layout Enumerate
+小型但有用的简单运算符
+\begin_inset Newline newline
+\end_inset
+
+算术，逻辑和关系操作可以使用表达式语言完成
+\begin_inset Newline newline
+\end_inset
+
+若要在 el 表达式中操作对象, 可以使用多个算术、关系、逻辑或空测试运算符中的任何一个
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+通用操作符表格
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+条件输出
+\begin_inset Newline newline
+\end_inset
+
+可以在输出选项间做选择:
+\begin_inset Newline newline
+\end_inset
+
+#{test ? option1 : option2}
+\begin_inset Newline newline
+\end_inset
+
+<h:someElement … rendered="#{test}"/> 
+\begin_inset Newline newline
+\end_inset
+
+<ui:fragment rendered="…">…</ui:fragment>
+\end_layout
+
+\begin_layout Enumerate
+传递参数
+\begin_inset Newline newline
+\end_inset
+
+el 的2.1 版允许将任意参数传递给方法。仅适用于支持 el 2.1 的 java ee 6 或其他服务器。不是 jsf 2 本身的一部分
+\begin_inset Newline newline
+\end_inset
+
+例如允许工作在Tomcat 7而不是Tomcat 6,即使JSF 2都可以运行工作
+\end_layout
+
+\begin_layout Enumerate
+空值而不是错误信息
+\begin_inset Newline newline
+\end_inset
+
+大多数情况下，缺失的值或者NullPointerExceptions，会导致空字符串, 而不会引发异常
+\end_layout
+
 \begin_layout Section
 常见用法
 \end_layout
 
+\begin_layout Subsection
+访问bean属性
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Web应用范围
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+说 明
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+JSF是否支持
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+应用（application）
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+保存在此范围内的变量对应用的整个生命周期都有效
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+是
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+会话（session）
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+保存在此范围内的变量仅在用户会话期间有效
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+是
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+请求（request）
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+保存在此范围内的变量仅对当前请求有效
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+是
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+页面（page）
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+保存在此范围内的变量仅对当前页面有效
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+否
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "JSF应用引用变量支持的范围"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+JSF应用支持应用、会话和请求范围的引用变量
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+一般格式：#{varName.propertyName}
+\end_layout
+
+\begin_layout Standard
+首先找到变量名字：在所有定义的范围（JSF应用支持应用、会话和请求范围的引用变量，见表
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "JSF应用引用变量支持的范围"
+
+\end_inset
+
+）中搜索 "varname", 从最特定的到最一般的 (请求、会话、应用程序, 按照标准 web 应用程序范围的顺序)。然后查看托管 bean
+ 定义并实例化。调用getPropertyName并输出结果(布尔型用is)
+\end_layout
+
+\begin_layout Standard
+如果是访问嵌套的bean属性，格式：#{var.prop1.prop2.prop3}。首先找到变量，和普通访问相同。查看现有范围 (最窄到最宽)，如果未找到,
+ 查看托管 bean 定义并实例化。在bean中调用getProp1，在getProp1的结果中调用getProp2...以此类推，最后输出结果
+\end_layout
+
+\begin_layout Standard
+example：
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+1.#{employee.firstName} 
+\end_layout
+
+\begin_layout Plain Layout
+
+  调用名为employee的bean中getFirstName方法。输出它
+\end_layout
+
+\begin_layout Plain Layout
+
+2.<h:inputText value="#{employee.firstName}"/>
+\end_layout
+
+\begin_layout Plain Layout
+
+  当表单显示的时候，调用getFirstName，如果非空，填入文本的初始值
+\end_layout
+
+\begin_layout Plain Layout
+
+  当表单提交的时候，验证值，如果通过，将值传递给 setFirstName 方法                              
+               
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+访问集合
+\end_layout
+
+\begin_layout Standard
+访问数组的一般格式（点和数组符号等价）：
+\end_layout
+
+\begin_layout Standard
+#{name.property}（只有property是合法的java变量名的时候，表达式才是合法的）
+\end_layout
+
+\begin_layout Standard
+#{name["property"]}
+\end_layout
+
+\begin_layout Standard
+通常使用[]访问数组元素，有以下几点原因：1.可以访问arrays, lists和其他集合 2.在请求时计算属性，不是在应用被编译时 3.可以使用不合法的java变量
+名 4.可以在其中嵌套另一个表达式
+\end_layout
+
+\begin_layout Standard
+引用array, List, 或者Map元素：使用#{someBean.someProperty[indexOrKey]}
+\end_layout
+
+\begin_layout Standard
+集合访问也可以嵌套：
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+嵌套分隔符
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+example：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+1.#{employee.addresses[0].zip}
+\end_layout
+
+\begin_layout Plain Layout
+
+  调用名为employee（返回array或者list）的bean中getAddresses方法，然后获取第一项，调用第一项返回对象的getZip方法，输出结
+果
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+逻辑和数学表达式
+\end_layout
+
+\begin_layout Standard
+EL支持大量的通用操作符
+\end_layout
+
+\begin_layout Subsection
+方法绑定表达式
+\end_layout
+
 \begin_layout Section
 高级用法
+\end_layout
+
+\begin_layout Subsection
+条件输出
+\end_layout
+
+\begin_layout Subsection
+使用隐式变量
 \end_layout
 
 \begin_layout Standard
