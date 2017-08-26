@@ -117,7 +117,7 @@ EL定义了两种表达式：值表达式和方法表达式。值表达式可以
 \end_layout
 
 \begin_layout Standard
-JavaServerFaces技术引入了自己的表达式语言(以#开始，将变量或表达式放置在{}之间),通常用来关联UI组件属性至后台bean或者应用中的模型对象。
+JavaServerFaces技术引入了自己的表达式语言(以#开始，将变量或表达式放置在{}之间)。通常用来关联UI组件属性至后台bean或者应用中的模型对象。
 它们在运行时求解，通常是视图被显示时，而不是在应用被编译时,其中包含以下功能：表达式的延迟计算;设置数据以及获取数据;调用方法。这些功能对于支持JavaServ
 er Faces技术提供的复杂UI组件模型尤其重要。
 \end_layout
@@ -168,16 +168,6 @@ e}
 \begin_layout Enumerate
 提供对预定义对象的轻松访问。支持访问常用对象的隐含变量。例如要访问请求参数、cookie、HTTP 标头和其他标准类型的请求数据, 可以使用几个预定义的隐式对象
 。
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-隐含变量表格
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -198,16 +188,6 @@ status collapsed
 \end_inset
 
 若要在 el 表达式中操作对象, 可以使用多个算术、关系、逻辑或空测试运算符中的任何一个
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-通用操作符表格
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -256,16 +236,6 @@ el 的2.1 版允许将任意参数传递给方法。仅适用于支持 el 2.1 �
 
 \begin_layout Subsection
 访问bean属性
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-概述，分条
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -458,6 +428,10 @@ JSF应用支持应用、会话和请求范围的引用变量
 \end_layout
 
 \begin_layout Standard
+JSF的EL可用于将 JavaBeans 绑定到组件属性，以简化组件从各种源访问数据的方式。
+\end_layout
+
+\begin_layout Standard
 一般格式：#{varName.propertyName}
 \end_layout
 
@@ -517,16 +491,6 @@ status open
 
 \begin_layout Subsection
 访问集合
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-概述，分条
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -552,16 +516,6 @@ status open
 
 \begin_layout Standard
 集合访问也可以嵌套：
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-嵌套分隔符
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -620,7 +574,7 @@ reference "JSTL函数"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
@@ -1114,17 +1068,110 @@ status open
 \end_layout
 
 \begin_layout Standard
-使用EL来调用bean的任意公共方法（可以返回结果），则称之为方法绑定表达式（method-binding expression）。在JavaServer
- Faces技术中，组件标签表示页面上的组件。组件标签使用方法表达式来调用对组件执行一些处理的方法。这些方法对于处理组件生成的事件和验证组件数据是必需的。因为可
-以在生命周期的不同阶段调用一个方法，所以方法表达式必须使用延迟计算语法。方法表达式只能在标签属性中使用
+到此，已经讨论了能解出特定属性值的表达式，以及像#{user.demands == 'too much'}之类的逻辑表达式，#{weather.temp/32}之类
+的数学表达式，都可认为是值绑定表达式。
 \end_layout
 
 \begin_layout Standard
-格式：#{myBean.methodName}
+当使用EL来调用bean的任意公共方法（可以返回结果），则称之为方法绑定表达式（method-binding expression）。在JavaServer
+ Faces技术中，EL支持支持延迟方法表达式，可以在生命周期的不同阶段调用一个方法。组件标签表示页面上的组件。组件标签使用方法表达式来调用对组件执行一些处理的
+方法。这些方法对于处理组件生成的事件和验证组件数据是必需的。因为可以在生命周期的不同阶段调用一个方法，所以方法表达式必须使用延迟计算语法。方法表达式只能在标签属
+性中使用
+\end_layout
+
+\begin_layout Standard
+方法表达式只能在标签属性中使用，只能通过以下方式使用：#{myBean.methodName}
+\end_layout
+
+\begin_layout Standard
+example：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<h:form>     
+\end_layout
+
+\begin_layout Plain Layout
+
+  <h:inputText       
+\end_layout
+
+\begin_layout Plain Layout
+
+    id="name"        
+\end_layout
+
+\begin_layout Plain Layout
+
+    value="#{customer.name}"         
+\end_layout
+
+\begin_layout Plain Layout
+
+    validator="#{customer.validateName}"/>     
+\end_layout
+
+\begin_layout Plain Layout
+
+  <h:commandButton         
+\end_layout
+
+\begin_layout Plain Layout
+
+    id="submit"         
+\end_layout
+
+\begin_layout Plain Layout
+
+    action="#{customer.submit}" /> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</h:form>
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 参数化方法调用：EL提供对参数化方法调用的支持。方法调用可以使用参数，而不必使用静态EL函数。
+\end_layout
+
+\begin_layout Standard
+.和[]都可以实现参数化方法调用，值表达式和方法表达式都支持参数，参数可以是零个、多个值或表达式，用逗号分隔。
+\end_layout
+
+\begin_layout Standard
+example：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+值表达式：<h：inputText value ="＃{userNumberBean.userNumber（'5'）}">
+\end_layout
+
+\begin_layout Plain Layout
+
+方法表达式：<h：commandButton action ="＃{trader.buy（'SOMEITEM'）}"value ="buy"/>
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1135,28 +1182,127 @@ status open
 条件输出
 \end_layout
 
-\begin_layout Standard
-#{ condition ? val1 : val2 }
+\begin_layout Subsubsection
+三元运算符
 \end_layout
 
 \begin_layout Standard
-EL直接支持有条件限制的三元运算符(test ? thenResult : elseResult),但是它们不能包含html标签，不允许省略else部分
+想要实现文本的条件输出可以使用EL直接支持有条件限制的三元运算符(test ? thenResult : elseResult）
 \end_layout
 
 \begin_layout Standard
-这种情况比较简单，但是如果想要输出html，可以在h:outputText中使用三元运算符，并且设置escape="false"，不进行转义
+格式：#{ condition ? val1 : val2 }
 \end_layout
 
 \begin_layout Standard
-h:outputText and "rendered"
+提供一个boolean类型的条件，结果放在?或者:后面，可以是字符串或EL表达式，但是不能包含html标签，不允许省略else部分。这种情况比较简单，但是如果想
+要输出html，可以在h:outputText中使用三元运算符，并且设置escape="false"（不进行转义）
 \end_layout
 
 \begin_layout Standard
-几乎所有的h：标签元素可以使用rendered
+example：
 \end_layout
 
 \begin_layout Standard
-将布尔类型的值放在rendered属性中，将条件下的内容放在value属性中，value值可以使EL表达式或者文本字符串，但是文本字符串不能包含html标签
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#{customer.balance < 0 ? 'red': 'black'}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+rendered
+\end_layout
+
+\begin_layout Standard
+另外使用rendered属性也可以实现条件输出，几乎所有的h：标签元素可以使用rendered属性，因此几乎可以将条件插入所有JSF元素。
+\end_layout
+
+\begin_layout Standard
+将布尔类型的值放在rendered属性中，将条件下的内容放在value属性中，value值可以使EL表达式或者文本字符串，但是文本字符串也不能包含html标签
+\end_layout
+
+\begin_layout Standard
+example：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<h：outputText value =“some conditional message”
+\end_layout
+
+\begin_layout Plain Layout
+
+  rendered =“＃{！someManagedBean.someProperty}”/>
+\end_layout
+
+\begin_layout Plain Layout
+
+<h:outputText rendered="#{status.index > 5}" 
+\end_layout
+
+\begin_layout Plain Layout
+
+  value="#{user.someWarning}" 
+\end_layout
+
+\begin_layout Plain Layout
+
+  escape="false"/>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+如果想要包含html标签，可以使用ui:fragment。同样将布尔值传递给rendered属性, 将条件内容放在正文内容中。该值可以是文本字符串或EL表达式,
+ 而文本字符串可以包含 HTML 标记。
+\end_layout
+
+\begin_layout Standard
+example：
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+//除了最后，在每个条目后输出一个加粗的逗号
+\end_layout
+
+\begin_layout Plain Layout
+
+<ui:fragment rendered="#{!status.last}"> 
+\end_layout
+
+\begin_layout Plain Layout
+
+  <b>,</b> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</ui:fragment>
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
