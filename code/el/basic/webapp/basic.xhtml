@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <h:head>
+    <title>This is an example of a simple foundation!</title>
+  </h:head>
+  <h:body>
+    <h:form>
+      <h2>Hello World!</h2>
+        <h:outputText value = "#{basic.greeting}"/>
+        <br/><br/>
+        Now is: 
+        <h:outputText value = "#{basic.time}"/>
+        <br/><br/>
+        The first message is:
+        <h:outputText value = "#{basic.messages[0]}"/>
+        <br/><br/>
+        <h:panelGrid columns="2" styleClass="formTable">
+          first name:
+          <h:inputText value="#{member.name.firstName}"/>
+          last name:
+          <h:inputText value="#{member.name.lastName}"/>
+          Name of the company:
+          <h:inputText value="#{member.company.companyName}"/>
+          Business area of the company:
+          <h:inputText value="#{member.company.business}"/>
+        </h:panelGrid>
+      <h:commandButton value="submit"  action="#{member.memberInformation}"/>
+    </h:form>
+  </h:body>
+</html> 
